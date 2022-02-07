@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<script>
-	function setSearchEngine(){
+	function setSearchEngine(form){
 		let query = document.querySelector('input[name=q]');
 			let engine = document.querySelector('input[type=radio]:checked');
 			if(engine && query.value !== ''){
@@ -29,7 +29,7 @@
     window.addEventListener("load", function(){
         let form = document.querySelector('form');
 		form.addEventListener('submit',function(event){
-			setSearchEngine();
+			setSearchEngine(form);
 		})
     });
 	</script>
