@@ -5,30 +5,30 @@
 	<script>
 	function setSearchEngine(form){
 		let query = document.querySelector('input[name=q]');
-			let engine = document.querySelector('input[type=radio]:checked');
-			if(engine && query.value !== ''){
-				let actions = {
-					'google': 'https://www.google.com/search',
-					'duckDuckGo': 'https://duckduckgo.com/',
-					'bing': 'https://www.bing.com/search',
-					'ask': 'https://www.ask.com/web'
-				}
-				form.action = actions[engine.value];
-			} else {
-				event.preventDefault();
-				let msg = '';
-				if(!engine){
-					msg += 'You must select a search engine\n';
-				}
-				if(query.value === ''){
-					msg += 'You must enter a search string';
-				}
-				window.alert(msg);
+		let engine = document.querySelector('input[type=radio]:checked');
+		if(engine && query.value !== ''){
+			let actions = {
+				'google': 'https://www.google.com/search',
+				'duckDuckGo': 'https://duckduckgo.com/',
+				'bing': 'https://www.bing.com/search',
+				'ask': 'https://www.ask.com/web'
 			}
+			form.action = actions[engine.value];
+		} else {
+			event.preventDefault();
+			let msg = '';
+			if(!engine){
+				msg += 'You must select a search engine\n';
+			}
+			if(query.value === ''){
+				msg += 'You must enter a search string';
+			}
+			window.alert(msg);
+		}
 	}
     window.addEventListener("load", function(){
         let form = document.querySelector('form');
-		form.addEventListener('submit',function(event){
+		form.addEventListener('submit',(event)=>{
 			setSearchEngine(form);
 		})
     });
